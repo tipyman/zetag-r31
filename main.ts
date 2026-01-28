@@ -291,6 +291,7 @@ namespace ZETag_R31 {
         // region clip（運用帯: 470–510MHz / 920–928MHz）
         if (frequency < 470000000) frequency = 470000000;
         else if (frequency > 928000000) frequency = 928000000;
+        else if ((frequency > 510000000) && (frequency < 920600000)) frequency = 510000000;
 
         const f3 = (frequency >>> 24) & 0xFF;
         const f2 = (frequency >>> 16) & 0xFF;
