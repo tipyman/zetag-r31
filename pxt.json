@@ -1,6 +1,6 @@
 {
     "name": "ZETag-R31",
-    "description": "",
+    "description": "Extension blocks for ZETag-microbit",
     "dependencies": {
         "core": "*",
         "radio": "*",

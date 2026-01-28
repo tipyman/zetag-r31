@@ -285,8 +285,8 @@ namespace ZETag_R31 {
         // clip
         if (chNum < 1) chNum = 1;
         if (chNum > 6) chNum = 6;
-        if (chStep < 100) chStep = 2;
-        if (chStep > 200) chStep = 1;
+        if (chStep < 1) chStep = 1;
+        if (chStep > 2) chStep = 2;
 
         // region clip（運用帯: 470–510MHz / 920–928MHz）
         if (frequency < 470000000) frequency = 470000000;
