@@ -3,7 +3,7 @@
  * Original: Masakazu Urade (Tipyman) 2026/01/28
  */
 
-//% weight=100 color=#32CD32 icon="\uf482" block="ZETag R3.0"
+//% weight=100 color=#32CD32 icon="\uf482" block="ZETag R3.1"
 namespace ZETag_R31 {
 
     // -----------------------------
