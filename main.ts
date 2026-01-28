@@ -72,10 +72,10 @@ namespace ZETag_R31 {
         dBm10 = 10,
     }
     export enum Mode {
-        //% block="4FSK(600sps,1/2)"
+        //% block="4FSK"
         FSK4 = 0,
-        //% block="(予約)8FSK"
-        FSK8 = 1 // 仕様未定義のため送信値は 0x01 に固定
+        //% block="8FSK"
+        FSK8 = 1
     }
     export enum OP_Mode {
         //% block="Normal"
@@ -264,7 +264,7 @@ namespace ZETag_R31 {
      */
     //% blockId=Set_channel_spacing block="Set channel spacing %chSpace (kHz)"
     //% subcategory="Other" weight=95 blockGap=8
-    //% chSpace.min=100 chSpace.max=200 chSpace.defl=100
+    //% chSpace.defl=ChSpace.KHz200
     export function Set_channel_spacing(chSpace: number): void {
         if (chSpace < 100) chSpace = 100;
         if (chSpace > 200) chSpace = 200;
@@ -280,7 +280,7 @@ namespace ZETag_R31 {
     //% subcategory="Other" weight=95 blockGap=8
     //% frequency.min=470000000 frequency.max=928000000 frequency.defl=922080000
     //% chNum.min=1 chNum.max=6 chNum.defl=2
-    //% chStep.min=100 chStep.max=200 chStep.defl=100
+    //% chStep.min=1 chStep.max=2 chStep.defl=1
     export function Set_Frequency(frequency: number, chNum: number, chStep: number): void {
         // clip
         if (chNum < 1) chNum = 1;
