@@ -332,9 +332,9 @@ namespace ZETag_R31 {
     //% block="ZETag Setting|Frequency(Hz) %frequency|Band width(kHz) %chSpace|Number of Channel(ch) %chNum|Tx Power(dB) %txPower|Mode %mode"
     //% group="ZETag Setting" weight=95 blockGap=8
     //% frequency.min=470000000 frequency.max=928000000 frequency.defl=922080000
-    //% chSpace.defl=ChSpace.KHz200
-    //% chNum.defl=ChNum._2
-    //% txPower.defl=TxPower.dBm8
+    //% chSpace.defl=200
+    //% chNum.defl=2
+    //% txPower.defl=8
     //% mode.defl=Mode.FSK4
     export function applySetting(
         frequency: number,
