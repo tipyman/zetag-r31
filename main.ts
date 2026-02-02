@@ -151,7 +151,7 @@ namespace ZETag_R31 {
      */
 
     function sendCommand(type: number, payload: number[] = []): number[] {
-        const len = 1 + payload.length + 1;
+        const len = 1 + payload.length;
         const header = [0xFF, 0x00, len, type];
         const crc = checksum8(header.concat(payload));
 
