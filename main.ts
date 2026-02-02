@@ -264,7 +264,7 @@ namespace ZETag_R31 {
      */
     //% blockId=Set_channel_spacing block="Set channel spacing %chSpace (kHz)"
     //% subcategory="Other" weight=95 blockGap=8
-    //% chSpace.defl=ChSpace.KHz200
+    //% chSpace.min=100 chSpace.max=200 chSpace.defl=100
     export function Set_channel_spacing(chSpace: number): void {
         if (chSpace < 100) chSpace = 100;
         if (chSpace > 200) chSpace = 200;
@@ -280,7 +280,7 @@ namespace ZETag_R31 {
     //% subcategory="Other" weight=95 blockGap=8
     //% frequency.min=470000000 frequency.max=928000000 frequency.defl=922080000
     //% chNum.min=1 chNum.max=6 chNum.defl=2
-    //% chStep.min=1 chStep.max=2 chStep.defl=1
+    //% chStep.min=1 chStep.max=2 chStep.defl=2
     export function Set_Frequency(frequency: number, chNum: number, chStep: number): void {
         // clip
         if (chNum < 1) chNum = 1;
@@ -332,9 +332,9 @@ namespace ZETag_R31 {
     //% block="ZETag Setting|Frequency(Hz) %frequency|Band width(kHz) %chSpace|Number of Channel(ch) %chNum|Tx Power(dB) %txPower|Mode %mode"
     //% group="ZETag Setting" weight=95 blockGap=8
     //% frequency.min=470000000 frequency.max=928000000 frequency.defl=922080000
-    //% chSpace.defl=200
-    //% chNum.defl=2
-    //% txPower.defl=8
+    //% chSpace.min=100 chSpace.max=200 chSpace.defl=200
+    //% chNum.min=1 chNum.max=6 chNum.defl=2
+    //% txPower.min=2 txPower.max=10 txPower.defl=8
     //% mode.defl=Mode.FSK4
     export function applySetting(
         frequency: number,
