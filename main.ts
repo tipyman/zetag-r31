@@ -119,7 +119,7 @@ namespace ZETag_R31 {
         while (true) {
             const d = UART_BIN_RX();
             if (d === 0xFF) break;
-            if (++timeoutCounter > 15) return [RxStatus.TIMEOUT];
+            if (++timeoutCounter > 250) return [RxStatus.TIMEOUT];
         }
 
         // expect 00
@@ -127,15 +127,15 @@ namespace ZETag_R31 {
         if (b1 !== 0x00) return [RxStatus.FORMAT_ERR];
 
         // read LEN
-        const len = UART_BIN_RX() & 0xFF;
+        const len = UART_BIN_RX();
         if (len < 2) return [RxStatus.FORMAT_ERR]; // 最小: Type(1)+CRC(1)
 
         // read (LEN-1) bytes (Type + Data...)
         const typeAndData: number[] = [];
-        for (let i = 0; i < len - 1; i++) typeAndData.push(UART_BIN_RX() & 0xFF);
+        for (let i = 0; i < len - 1; i++) typeAndData.push(UART_BIN_RX());
 
         // read CRC
-        const crc = UART_BIN_RX() & 0xFF;
+        const crc = UART_BIN_RX();
 
         // verify checksum
         const calc = checksum8([0xFF, 0x00, len].concat(typeAndData));
@@ -151,7 +151,7 @@ namespace ZETag_R31 {
      */
 
     function sendCommand(type: number, payload: number[] = []): number[] {
-        const len = 1 + payload.length;
+        const len = 2 + payload.length;
         const header = [0xFF, 0x00, len, type];
         const crc = checksum8(header.concat(payload));
 
