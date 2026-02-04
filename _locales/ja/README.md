@@ -80,7 +80,7 @@ ZETag初期化
     export function Set_Frequency(frequency: number, chNum: number, chStep: number): void
 
     // バージョン情報取得
-    export function Get_Protocol_Version(): number
+    export function Get_Protocol_Version(): void
 
     // 動作モード設定　（テストモード/通常モード）
     export function Set_Operating_Mode(mode: OP_Mode): void
@@ -118,8 +118,8 @@ TypeScriptサンプル（Wakeup="H"アクティブ対応）
 
 ーーーーーーーーーーーーーーーーーーーーーーーーーーー
 ライセンス / リンク
-・ 公開ページ: https://tipyman.github.io/zetag-r31/
-・ GitHubリポジトリ: https://github.com/tipyman/zetag-r31
+・ 公開ページ: https://tipyman.github.io/zetag-r30/
+・ GitHubリポジトリ: https://github.com/tipyman/zetag-r30
 ・ ライセンス: MIT推奨
 > このページを開く [https://tipyman.github.io/zetag-r31/](https://tipyman.github.io/zetag-r31/)
 
