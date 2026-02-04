@@ -104,7 +104,7 @@ namespace ZETag_R31 {
     /** Sum of bytes (8-bit) */
     function checksum8(bytes: number[]): number {
         let sum = 0;
-        for (let i = 0; i < bytes.length; i++) sum = (sum + (bytes[i] & 0xFF)) & 0xFF;
+        for (let i = 0; i < bytes.length; i++) sum = sum + bytes[i];
         return sum & 0xFF;
     }
 
