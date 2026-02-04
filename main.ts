@@ -1,11 +1,11 @@
 /**
  * makecode ZETag module Package Release 3.1
- * Original: Masakazu Urade (Tipyman) 2026/02/02
+ * Written by Masakazu Urade (Tipyman)　2026/2/4
  */
 
 //% weight=100 color=#32CD32 icon="\uf482" block="ZETag R3.1"
 namespace ZETag_R31 {
-
+    
     // -----------------------------
     // Constants & Types
     // -----------------------------
