@@ -118,8 +118,8 @@ TypeScriptサンプル（Wakeup="H"アクティブ対応）
 
 ーーーーーーーーーーーーーーーーーーーーーーーーーーー
 ライセンス / リンク
-・ 公開ページ: https://tipyman.github.io/zetag-r31/
-・ GitHubリポジトリ: https://github.com/tipyman/zetag-r31
+・ 公開ページ: https://tipyman.github.io/zetag-r31/ 
+・ GitHubリポジトリ: https://github.com/tipyman/zetag-r31 
 ・ ライセンス: MIT推奨
 > このページを開く [https://tipyman.github.io/zetag-r31/](https://tipyman.github.io/zetag-r31/)
 
