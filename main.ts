@@ -114,7 +114,6 @@ namespace ZETag_R31 {
      */
     function receive_query(): number[] {
         let timeoutCounter = 0;
-        basic.pause(20) //260701
         
         // sync FF
         while (true) {
@@ -160,6 +159,7 @@ namespace ZETag_R31 {
         frame.push(crc); // ← ここがポイント
 
         for (let i = 0; i < frame.length; i++) UART_BIN_TX(frame[i]);
+        basic.pause(20) //260701 AC給電の場合、これが効く。受信までちょっと待つ。
 
         return receive_query();
     }
@@ -176,6 +176,7 @@ namespace ZETag_R31 {
     //% group="Send data" weight=95 blockGap=8
     export function Send_ZETag_command(txArray: number[]): number[] {
         for (let i = 0; i < txArray.length; i++) UART_BIN_TX(txArray[i] & 0xFF);
+        basic.pause(20) //260701 AC給電の場合、これが効く。受信までちょっと待つ。
 
         const rsp = receive_query();
         if (rsp[0] !== RxStatus.OK) return rsp;
@@ -345,20 +346,16 @@ namespace ZETag_R31 {
         mode: Mode
     ): void {
         // 0) 無線パラメータ（変調等）
-        basic.showNumber(5) //0701
         Set_TX_Mode(mode);
 
         // 1) チャネル間隔（例: 作法として 100kHz に固定）
-        basic.showNumber(6) //0701
         Set_channel_spacing(ChSpace.KHz100);
 
         // 2) 周波数＋チャネル
-        basic.showNumber(7) //0701
         const chStep = (chSpace === ChSpace.KHz200) ? 2 : 1;
         Set_Frequency(frequency, chNum, chStep);
 
         // 3) 送信電力
-        basic.showNumber(8) //0701
         Set_TX_Power(txPower);
     }
 }
