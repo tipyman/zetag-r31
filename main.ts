@@ -120,7 +120,7 @@ namespace ZETag_R31 {
         while (true) {
             basic.showString("B") //0701
             const d = UART_BIN_RX();
-            basic.showNumber(d) //0701
+            //basic.showNumber(d) //0701
             if (d === 0xFF) break;
             if (++timeoutCounter > 250) return [RxStatus.TIMEOUT];
         }
