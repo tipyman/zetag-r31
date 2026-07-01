@@ -344,9 +344,11 @@ namespace ZETag_R31 {
         mode: Mode
     ): void {
         // 0) 無線パラメータ（変調等）
+        basic.showNumber(0) //0701
         Set_TX_Mode(mode);
 
         // 1) チャネル間隔（例: 作法として 100kHz に固定）
+        basic.showNumber(1) //0701
         Set_channel_spacing(ChSpace.KHz100);
 
         // 2) 周波数＋チャネル
