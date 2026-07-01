@@ -255,12 +255,8 @@ namespace ZETag_R31 {
     export function Set_TX_Power(txPower: number): void {
         if (txPower < 1) txPower = 1;
         if (txPower > 10) txPower = 10;
-        basic.showNumber(4) //0701
         const reg = (txPower * 2) & 0xFF;
-        basic.showNumber(5) //0701
-        let rsp = sendCommand(CMD_TX_POWER, [reg]); //0701
-        basic.showNumber(6) //0701
-        basic.showNumber(rsp[0]) //0701
+        sendCommand(CMD_TX_POWER, [reg]);
     }
 
     /**
@@ -348,22 +344,18 @@ namespace ZETag_R31 {
         mode: Mode
     ): void {
         // 0) 無線パラメータ（変調等）
-        basic.showNumber(0) //0701
         Set_TX_Mode(mode);
 
         // 1) チャネル間隔（例: 作法として 100kHz に固定）
-        basic.showNumber(1) //0701
         Set_channel_spacing(ChSpace.KHz100);
 
-        basic.pause(250); //0701
-
-        // 2) 送信電力
+        // 2) 周波数＋チャネル
         basic.showNumber(2) //0701
-        Set_TX_Power(txPower);
-
-        // 3) 周波数＋チャネル
-        basic.showNumber(3) //0701
         const chStep = (chSpace === ChSpace.KHz200) ? 2 : 1;
         Set_Frequency(frequency, chNum, chStep);
+
+        // 3) 送信電力
+        basic.showNumber(3) //0701
+        Set_TX_Power(txPower);
     }
 }
