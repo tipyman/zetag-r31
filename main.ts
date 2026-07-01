@@ -259,9 +259,12 @@ namespace ZETag_R31 {
         basic.showNumber(4) //0701
 
         const reg = (txPower * 2) & 0xFF;
+        
         basic.showNumber(5) //0701
+
         let rsp = sendCommand(CMD_TX_POWER, [reg]); //0701
         //sendCommand(CMD_TX_POWER, [reg]);
+
         basic.showNumber(6) //0701
         basic.showNumber(rsp[0]) //0701
     }
