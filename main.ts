@@ -114,10 +114,10 @@ namespace ZETag_R31 {
      */
     function receive_query(): number[] {
         let timeoutCounter = 0;
-
+        basic.pause(20) //260701
+        
         // sync FF
         while (true) {
-            basic.pause(1) //260701
             const d = UART_BIN_RX();
             if (d === 0xFF) break;
             if (++timeoutCounter > 250) return [RxStatus.TIMEOUT];
