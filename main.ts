@@ -1,6 +1,6 @@
 /**
  * makecode ZETag module Package Release 3.1
- * Written by Masakazu Urade (Tipyman)　2026/2/4
+ * Written by Masakazu Urade (Tipyman)　2026/7/1
  */
 
 //% weight=100 color=#32CD32 icon="\uf482" block="ZETag R3.1"
