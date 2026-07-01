@@ -354,7 +354,8 @@ namespace ZETag_R31 {
         // 1) チャネル間隔（例: 作法として 100kHz に固定）
         basic.showNumber(1) //0701
         Set_channel_spacing(ChSpace.KHz100);
-        basic.pause(500); //0701
+
+        basic.pause(250); //0701
 
         // 2) 送信電力
         basic.showNumber(2) //0701
