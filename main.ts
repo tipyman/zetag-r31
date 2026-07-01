@@ -255,8 +255,15 @@ namespace ZETag_R31 {
     export function Set_TX_Power(txPower: number): void {
         if (txPower < 1) txPower = 1;
         if (txPower > 10) txPower = 10;
+        
+        basic.showNumber(4) //0701
+
         const reg = (txPower * 2) & 0xFF;
-        sendCommand(CMD_TX_POWER, [reg]);
+        basic.showNumber(5) //0701
+        let rsp = sendCommand(CMD_TX_POWER, [reg]); //0701
+        //sendCommand(CMD_TX_POWER, [reg]);
+        basic.showNumber(6) //0701
+        basic.showNumber(rsp[0]) //0701
     }
 
     /**
