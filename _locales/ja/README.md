@@ -91,10 +91,9 @@ ZETag初期化
 ーーーーーーーーーーーーーーーーーーーーーーーーーーー
 TypeScriptサンプル（Wakeup="H"アクティブ対応）
     TypeScriptserial.redirect(SerialPin.P1, SerialPin.P0, BaudRate.BaudRate115200);
-    // Wakeup: Lアクティブ → Lowで起動
-    pins.digitalWritePin(DigitalPin.P2, 0);
-    basic.pause(10);
+    // Wakeup: Hアクティブ → Highで起動
     pins.digitalWritePin(DigitalPin.P2, 1);
+    basic.pause(30)
     
     // 周波数番号指定で設定
     ZETag_R31.Set_Frequency(922600000, 2, 2);   // 922.6MHz
@@ -108,9 +107,12 @@ TypeScriptサンプル（Wakeup="H"アクティブ対応）
         ZETag_R31.Transmit_ZETag_data([0x01, 0x02, 0xA5, 0x5A]);
     });
 
+    pins.digitalWritePin(DigitalPin.P2,0);
+
 ーーーーーーーーーーーーーーーーーーーーーーーーーーー
 注意事項
-・ WakeupはLアクティブ（Lowで起動）
+・ WakeupはHアクティブ（Highで起動）
+  
 ・ UARTは115,200bpsに設定
 ・ P0/P1/P2占有（他機能との併用不可）
 ・ TX/RXクロス接続
