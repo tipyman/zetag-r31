@@ -114,7 +114,7 @@ namespace ZETag_R31 {
      */
     function receive_query(): number[] {
         let timeoutCounter = 0;
-        
+
         // sync FF
         while (true) {
             const d = UART_BIN_RX();

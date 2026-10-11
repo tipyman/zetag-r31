@@ -1,5 +1,5 @@
 ーーーーーーーーーーーーーーーーーーーーーーーーーーー
-詳細仕様（ZETag R3.1 MakeCode拡張）
+詳細仕様（ZETag R3.1a MakeCode拡張）
 概要
 micro:bitからZETag MSTG-ST30をUARTで制御し、周波数・チャンネル・出力設定やデータ送信を行う拡張です。
 R2.2からの変更点は、4FSK/8FSKのモード選択機能、ファームバージョンの取得APIを追加しました。
@@ -11,7 +11,7 @@ R2.2からの変更点は、4FSK/8FSKのモード選択機能、ファームバ�
     https://github.com/tipyman/zetag-r31
 または「Import URL」でも同URLを指定可能です（承認リスト外でもURL指定で読み込みできます）。
 
-追加が完了すると、ツールボックスに ZETag-R30 カテゴリが現れます。
+追加が完了すると、ツールボックスに ZETag-R31 カテゴリが現れます。
 
 ーーーーーーーーーーーーーーーーーーーーーーーーーーー
 ハードウェア構成（必読）
@@ -29,7 +29,7 @@ TX/RXはクロス接続です。ボーレートは 115,200bps を使用（MakeCo
 周波数テーブル（ZETag MSTG-ST30）
 
 | 周波数番号 | 中心周波数 [MHz] |
-|-----------|------------------|
+|-----------|-----------------|
 | 0         | 920.6           |
 | 1         | 920.8           |
 | 2         | 921.0           |
@@ -93,7 +93,7 @@ TypeScriptサンプル（Wakeup="H"アクティブ対応）
     TypeScriptserial.redirect(SerialPin.P1, SerialPin.P0, BaudRate.BaudRate115200);
     // Wakeup: Hアクティブ → Highで起動
     pins.digitalWritePin(DigitalPin.P2, 1);
-    basic.pause(30)
+    basic.pause(30);
     
     // 周波数番号指定で設定
     ZETag_R31.Set_Frequency(922600000, 2, 2);   // 922.6MHz
@@ -107,12 +107,12 @@ TypeScriptサンプル（Wakeup="H"アクティブ対応）
         ZETag_R31.Transmit_ZETag_data([0x01, 0x02, 0xA5, 0x5A]);
     });
 
-    pins.digitalWritePin(DigitalPin.P2,0);
+    pins.digitalWritePin(DigitalPin.P2, 0);
+
 
 ーーーーーーーーーーーーーーーーーーーーーーーーーーー
 注意事項
-・ WakeupはHアクティブ（Highで起動）
-  
+・ WakeupはHアクティブ（Highで起動）。"H"にした後30msec待ち
 ・ UARTは115,200bpsに設定
 ・ P0/P1/P2占有（他機能との併用不可）
 ・ TX/RXクロス接続
@@ -120,8 +120,8 @@ TypeScriptサンプル（Wakeup="H"アクティブ対応）
 
 ーーーーーーーーーーーーーーーーーーーーーーーーーーー
 ライセンス / リンク
-・ 公開ページ: https://tipyman.github.io/zetag-r31/ 
-・ GitHubリポジトリ: https://github.com/tipyman/zetag-r31 
+・ 公開ページ: https://tipyman.github.io/zetag-r31/
+・ GitHubリポジトリ: https://github.com/tipyman/zetag-r31
 ・ ライセンス: MIT推奨
 > このページを開く [https://tipyman.github.io/zetag-r31/](https://tipyman.github.io/zetag-r31/)
 
