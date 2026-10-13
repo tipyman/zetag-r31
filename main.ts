@@ -345,17 +345,18 @@ namespace ZETag_R31 {
         txPower: TxPower,
         mode: Mode
     ): void {
-        // 0) 無線パラメータ（変調等）
-        Set_TX_Mode(mode);
-
-        // 1) チャネル間隔（例: 作法として 100kHz に固定）
+        // 0) チャネル間隔（例: 作法として 100kHz に固定）
         Set_channel_spacing(ChSpace.KHz100);
 
-        // 2) 周波数＋チャネル
+        // 1) 周波数＋チャネル
         const chStep = (chSpace === ChSpace.KHz200) ? 2 : 1;
         Set_Frequency(frequency, chNum, chStep);
 
-        // 3) 送信電力
+        // 2) 送信電力
         Set_TX_Power(txPower);
+
+        // 3) 無線パラメータ（変調等）
+        Set_TX_Mode(mode);
+
     }
 }
